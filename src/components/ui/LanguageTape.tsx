@@ -20,7 +20,7 @@ const ScrollingTape = () => {
         repeatType: 'loop',
       },
     });
-  }, []); // No need to add [controls] since controls is stable
+  }, []);
 
   const renderedLanguages = React.useMemo(() => (
     [...languages, ...languages].map((lang, i) => (

@@ -8,6 +8,8 @@ import Footer from "@/components/Footer";
 import LanguageTape from "@/components/ui/LanguageTape";
 import BrandHeroSection from "@/components/BrandEndorsementSection";
 import ReviewSection from "@/components/ui/ReviewSection";
+import WhyChooseUsSection from "@/components/ui/WhyChooseUsSection";
+import WorldMapDemo from "@/components/Call_map";
 
 export default function Home() {
   return (
@@ -18,11 +20,14 @@ export default function Home() {
     <section>
       <ClientResultsDisplay/>
     </section>
-    <section>
+    <section className="mb-16 flex flex-col items-center justify-center min-h-[300px] p-8">
       <BrandHeroSection/>
     </section>
-    <section>
+    <section className="">
       <CareerHero/>
+    </section>
+    <section className="mb-16">
+    <WhyChooseUsSection/>
     </section>
     <section className="mb-16 flex flex-col items-center justify-center min-h-[300px]">
       <ProjectShowcaseBlock/>
@@ -30,7 +35,11 @@ export default function Home() {
     <section>
       <ReviewSection/>
     </section>
+    <section className="">
+      <WorldMapDemo/>
+    </section>
     <footer>
+
       <Footer/>
     </footer>
     <section className="fixed bottom-0 z-10 w-full">
