@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useCallback } from 'react';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
@@ -16,7 +14,7 @@ const testimonials = [
   { 
     metric: '2x', 
     title: 'Revenue Growth', 
-    description: 'UK-based ACF Events doubled revenue after implementing our solution',
+    description: 'Doubled revenue after implementing our solution',
     company: 'ACF EVENTS',
     logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZsfBAgTdR9yBtGdz404amtV_ejE4FyOGHrg&s'
   },
