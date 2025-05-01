@@ -2,7 +2,58 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['ik.imagekit.io','agencypartner.com','parvatiandsons.b-cdn.net','encrypted-tbn0.gstatic.com','cystercare.com','cdn.shopify.com','www.google.com','www.gstatic.com','play-lh.googleusercontent.com','lh3.googleusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "agencypartner.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "parvatiandsons.b-cdn.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cystercare.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.google.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.gstatic.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "play-lh.googleusercontent.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

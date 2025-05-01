@@ -9,6 +9,7 @@ import LanguageTape from "@/components/ui/LanguageTape";
 import BrandHeroSection from "@/components/BrandEndorsementSection";
 import ReviewSection from "@/components/ui/ReviewSection";
 import WhyChooseUsSection from "@/components/ui/WhyChooseUsSection";
+import HeroBannerCard from "@/components/ui/HeroBannerCard";
 import WorldMapDemo from "@/components/Call_map";
 
 export default function Home() {
@@ -35,11 +36,13 @@ export default function Home() {
     <section>
       <ReviewSection/>
     </section>
+    <section>
+      <HeroBannerCard/>
+    </section>
     <section className="">
       <WorldMapDemo/>
     </section>
     <footer>
-
       <Footer/>
     </footer>
     <section className="fixed bottom-0 z-10 w-full">
