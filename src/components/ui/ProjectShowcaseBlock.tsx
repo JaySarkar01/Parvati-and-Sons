@@ -68,7 +68,7 @@ export default function ProjectShowcaseBlock() {
             <div className="w-full lg:w-1/2 relative">
               <div className="relative w-full aspect-[4/3]">
                 {/* Main Screenshot */}
-                <div className="absolute inset-0 z-10">
+                <div className="absolute inset-0 ">
                   <Image
                     src="https://agencypartner.com/wp-content/uploads/2021/09/spa-fea.png"
                     alt="Goodwill website main page"
@@ -105,7 +105,7 @@ export default function ProjectShowcaseBlock() {
             <div className="w-full lg:w-1/2 relative">
               <div className="relative w-full aspect-[4/3]">
                 {/* Main Screenshot */}
-                <div className="absolute inset-0 z-10">
+                <div className="absolute inset-0">
                   <Image
                     src="https://agencypartner.com/wp-content/uploads/2021/11/Mask-Group-75.png"
                     alt="Goodwill website main page"
@@ -222,7 +222,7 @@ export default function ProjectShowcaseBlock() {
             <div className="w-full lg:w-1/2 relative">
               <div className="relative w-full aspect-[4/3]">
                 {/* Main Screenshot */}
-                <div className="absolute inset-0 z-10">
+                <div className="absolute inset-0">
                   <Image
                     src="https://agencypartner.com/wp-content/uploads/2021/11/MicrosoftTeams-image-6.png"
                     alt="Goodwill website main page"

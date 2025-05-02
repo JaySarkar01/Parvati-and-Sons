@@ -1,9 +1,22 @@
 "use client";
 import React, { useState,useEffect } from "react";
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
 import { Menu, X, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
+
 const Navbar = () => {
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/'); // Navigate to homepage
+
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -25,13 +38,13 @@ const Navbar = () => {
   return (
     <>
       {/* Top Navbar */}
-      <nav className="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-20 py-4 md:py-8 lg:py-10 bg-white z-50">
+      <nav className="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-20 py-4 md:py-8 lg:py-5 bg-white z-10 fixed top-0 w-full shadow-sm transition-all duration-300 ease-in-out">
         {/* Left Logo */}
-        <div className="flex items-center justify-start">
+        <div onClick={handleClick} className="flex items-center justify-start">
   <Image
     src="/logo/PAS-logo.svg"
     alt="Parvati & Sons"
-    width={240} // you can adjust this
+    width={155} // you can adjust this
     height={80} // and this as per actual image dimensions
     className="h-8 sm:h-9 md:h-8 lg:h-12 xl:h-14 flex"
   />
@@ -40,11 +53,11 @@ const Navbar = () => {
 
         {/* Centered Navigation Links (Hidden in Mobile) */}
         <ul className="hidden lg:flex space-x-4 xl:space-x-14 text-gray-900 font-medium font-sans text-lg xl:text-2xl">
-          {["Home", "Services", "Results", "About", "Insights"].map((item) => (
+          {["App Development", "ERP", "AI/Automation"].map((item) => (
             <li key={item}>
-              <a href="#" className="relative text-gray-900 font-medium text-lg xl:text-2xl
+              <a href="#" className="relative text-gray-70 0 font-medium text-lg xl:text-2xl
      transition-colors duration-100
-    before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-black before:transition-all before:duration-300 before:ease-in-out before:-translate-x-1/2
+    before:content-[''] before:absolute before:bottom-[-3] before:left-1/2 before:w-0 before:h-0.5 before:bg-black before:transition-all before:duration-300 before:ease-in-out before:-translate-x-1/2
     hover:before:w-full">
                 {item}
               </a>
@@ -74,7 +87,7 @@ const Navbar = () => {
         } transition-transform duration-300 ease-in-out z-50`}
       >
         {/* Sidebar Header */}
-        <div className="flex justify-between items-center px-4 py-4 border-b border-gray-300">
+        <div onClick={handleClick} className="flex justify-between items-center px-4 py-4 border-b border-gray-300">
         <Image
             src="/logo/PAS-logo.svg" 
             alt="Parvati & Sons"
@@ -93,7 +106,7 @@ const Navbar = () => {
 
         {/* Sidebar Links */}
         <ul className="flex flex-col text-gray-800 font-medium">
-          {["Home", "Services", "Results", "About", "Insights", "Contact"].map((item) => (
+          {["Home","App Development", "ERP", "AI/Automation" , "About", "Contact"].map((item) => (
             <li key={item} className="px-4 py-3 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
               <a href="#" className="block text-base">{item}</a>
             </li>

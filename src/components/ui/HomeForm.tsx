@@ -14,11 +14,11 @@ const HeroForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const projectCategories = [
-    "Android App",
-    "Website",
-    "Ad Run",
-    "Hosting",
-    "Servers Maintenance",
+    " Android App",
+    " Website",
+    " Ad Run",
+    " Hosting",
+    " Servers Maintenance",
   ];
 
   const sendOtp = useCallback(async () => {

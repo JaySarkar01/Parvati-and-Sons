@@ -11,10 +11,17 @@ import ReviewSection from "@/components/ui/ReviewSection";
 import WhyChooseUsSection from "@/components/ui/WhyChooseUsSection";
 import HeroBannerCard from "@/components/ui/HeroBannerCard";
 import WorldMapDemo from "@/components/Call_map";
+import { Inter } from "next/font/google";
+  const inter = Inter({
+    subsets: ['latin'],
+    weight: ['400', '700'],
+    variable: '--font-inter',
+    display: 'swap',
+  });
 
 export default function Home() {
   return (
-   <div>
+   <div className={`${inter.className} antialiased mt-15`}>
     <section>
       <Hero/>
     </section>
