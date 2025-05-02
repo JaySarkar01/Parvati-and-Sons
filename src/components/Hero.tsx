@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
 
       {/* Right Section - Image Placeholder */}
-      <div className="mt-6 w-75 md:w-160 h-96 md:h-105 bg-gray-50 rounded-lg flex justify-center items-center overflow-hidden">
+      <div className="mt-6 w-90 md:w-160 h-105 md:h-105 bg-gray-50 rounded-lg flex justify-center items-center overflow-hidden">
           <HeroFrom/>
       </div>
     </div>
