@@ -73,7 +73,6 @@ const AutoScrollingPartners = ({ partners }: { partners: Partner[] }) => {
 
   useEffect(() => {
     let isMounted = true;
-
     return () => {
       isMounted = false;
     };
