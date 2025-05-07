@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useEffect, memo } from 'react';
 import Image from 'next/image';
 import TestimonialSlider from '@/components/Swapin';
-
+import Partners from './ui/PartnersTap';
 // ---- Data ----
 const testimonials = [
   {
@@ -42,16 +42,6 @@ type Partner = {
   logo: string;
 };
 
-// 2. partners array
-const partners: Partner[] = [
-  { name: 'G2', logo: '/Partners/1.webp' },
-  { name: 'Trustpilot', logo: '/Partners/2.webp' },
-  { name: 'Capterra', logo: '/Partners/3.webp' },
-  { name: 'Microsoft', logo: '/Partners/4.webp' },
-  { name: 'App Store', logo: '/Partners/5.png' },
-  { name: 'Google Play', logo: '/Partners/6.webp' },
-  { name: 'Microsoft', logo: '/Partners/8.webp' },
-];
 // ---- Components ----
 const TestimonialCard = memo(({ testimonial }: { testimonial: typeof testimonials[0] }) => (
   <div className="h-full p-8 bg-gradient-to-br from-white via-blue-100 to-blue-300 rounded-2xl shadow-lg border border-purple-200 flex flex-col">
@@ -77,29 +67,17 @@ const TestimonialCard = memo(({ testimonial }: { testimonial: typeof testimonial
   </div>
 ));
 TestimonialCard.displayName = 'TestimonialCard';
+
 const AutoScrollingPartners = ({ partners }: { partners: Partner[] }) => {
   const controls = useAnimation();
 
   useEffect(() => {
     let isMounted = true;
 
-    const animate = async () => {
-      while (isMounted) {
-        await controls.start({
-          x: '-100%',
-          transition: { duration: 60, ease: 'linear' },
-        });
-        controls.set({ x: '0%' });
-      }
-    };
-
-    animate();
-
     return () => {
       isMounted = false;
     };
   }, [controls]);
-
   return (
     <div className="overflow-hidden w-full py-4">
       <motion.div className="flex gap-4 w-max" animate={controls}>
@@ -156,7 +134,7 @@ export default function ClientResultsDisplay() {
           <h3 className="text-center text-lg font-medium text-gray-500 mb-8">
             Trusted by industry leaders
           </h3>
-          <AutoScrollingPartners partners={partners} />
+          <Partners />
         </div>
       </div>
     </section>

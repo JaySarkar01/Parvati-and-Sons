@@ -4,8 +4,15 @@ import HeroFrom from "@/components/ui/HomeForm";
 // import WhatsAppInput from "@/components/ui/whatsendbox";
 // import Image from 'next/image';
 
+type HeroProps = {
+  data: {
+    heading: string;
+    subheading: string;
+  };
+};
+
 export const dynamic = 'force-static';
-const Hero = () => {
+const Hero: React.FC<HeroProps> = ({ data }) => {
   return (
     <div className="flex flex-col md:flex-row justify-around items-center px-6 md:px-16 py-12 gap-3">
       {/* Left Section */}
@@ -17,12 +24,12 @@ const Hero = () => {
                   "
               >
                 <span className="border-b-[3.3px] border-blue-500 rounded-md px-1 text-black">
-                  Websites & Apps
+                  {data.heading}
                 </span>
               </span> Without Boundaries
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl text-gray-900 font-medium mt-4">
-          Attain your Digital Vision and Rise above the Digital Noise to Show Up and Stand Out
+          {data.subheading}
         </p>
         {/* <div className="mt-6 flex flex-col md:flex-col items-center md:items-start space-y-2 md:space-y-0 md:space-x-3 text-gray-800">
           <span className="flex items-end">

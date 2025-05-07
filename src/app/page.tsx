@@ -19,11 +19,18 @@ import { Inter } from "next/font/google";
     display: 'swap',
   });
 
+  // Define the data object with heading and subheading
+  const data = {
+    heading: 'Websites & Apps',
+    subheading: 'Attain your Digital Vision and Rise above the Digital Noise to Show Up and Stand Out',
+  };
+
+
 export default function Home() {
   return (
    <div className={`${inter.className} antialiased mt-15`}>
     <section>
-      <Hero/>
+      <Hero data={data} />
     </section>
     <section>
       <ClientResultsDisplay/>
