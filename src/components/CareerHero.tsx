@@ -75,6 +75,7 @@ export default function CareerHero() {
               <Image
                 src={`/users/u${user}.webp`}
                 alt={`user${user}`}
+                sizes="(max-width: 68px) 40px, 64px"
                 fill
                 className="rounded-full border-2 border-white object-cover shadow-md"
               />

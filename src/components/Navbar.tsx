@@ -50,9 +50,9 @@ const Navbar = () => {
           <Image
             src="/logo/PAS-logo.svg"
             alt="Parvati & Sons"
-            width={155}
+            width={165}
             height={80}
-            className="h-8 sm:h-9 md:h-8 lg:h-12 xl:h-14 flex"
+            className="w-auto h-8 sm:h-6 md:h-8 lg:h-8 xl:h-10 flex"
           />
         </div>
 
@@ -121,7 +121,7 @@ const Navbar = () => {
         {/* Sidebar Links */}
         <ul className="flex flex-col text-gray-800 font-medium">
   <li className="px-4 py-3 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
-    <p onClick={() => navigate("home")} className="block text-base">Home</p>
+    <p onClick={handleClick} className="block text-base">Home</p>
   </li>
   <li className="px-4 py-3 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
     <p onClick={() => navigate("appdevelopment")} className="block text-base">App Development</p>

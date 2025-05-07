@@ -21,6 +21,8 @@ const HeroForm: React.FC = () => {
     " Servers Maintenance",
   ];
 
+
+  // Function to handle sending OTP
   const sendOtp = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -28,14 +30,40 @@ const HeroForm: React.FC = () => {
         alert("Please fill all fields");
         return;
       }
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      console.log("Sending OTP to", formData.mobile);
-      setStep("otp");
+  
+      // Replace +91 if not already included
+      const phoneNumber = formData.mobile.startsWith("+91")
+        ? formData.mobile
+        : `+91${formData.mobile}`;
+  
+      // Generate a random 6-digit OTP (or you can use any logic)
+      const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+      const res = await fetch("/api/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phoneNumber, otp }),
+      });
+  
+      const result = await res.json();
+  
+      if (result.success) {
+        console.log("OTP sent successfully:", otp);
+        // Optionally store OTP in state/session for verification
+        setStep("otp");
+      } else {
+        alert("Failed to send OTP: " + result.message);
+      }
+    } catch (err) {
+      console.error("Error sending OTP:", err);
+      alert("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
   }, [formData]);
+  
 
+  // Function to handle OTP verification
   const verifyOtp = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -43,13 +71,33 @@ const HeroForm: React.FC = () => {
         alert("Please enter a valid 6-digit OTP");
         return;
       }
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      console.log("Verifying OTP:", otp);
-      setStep("success");
+  
+      const mobile = formData.mobile.startsWith("91")
+        ? formData.mobile
+        : `91${formData.mobile.replace(/^\+/, "")}`;
+  
+      const res = await fetch("/api/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mobile, otp }),
+      });
+  
+      const result = await res.json();
+  
+      if (result.success) {
+        console.log("OTP verified successfully");
+        setStep("success");
+      } else {
+        alert("OTP verification failed: " + result.message);
+      }
+    } catch (err) {
+      console.error("Error verifying OTP:", err);
+      alert("Verification failed. Try again.");
     } finally {
       setIsLoading(false);
     }
-  }, [otp]);
+  }, [otp, formData.mobile]);
+  
 
   return (
     <div className="w-full h-full flex flex-col bg-white rounded-xl overflow-hidden border border-gray-300">
@@ -90,23 +138,40 @@ const HeroForm: React.FC = () => {
               />
             </div>
 
-            <div className="space-y-1">
+            {/* <div className="space-y-1">
               <label className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2 block">
                 Mobile
               </label>
               <PhoneInput
-  country={'in'}
-  value={formData.mobile}
-  onChange={(phone) => setFormData({ ...formData, mobile: phone })}
-  enableSearch
-  inputProps={{ required: true }}
-  inputClass="!w-full !text-sm !border-b !border-gray-200 !pl-14 !py-2 !focus:outline-none !focus:border-gray-900 !bg-white"
-  containerClass="!w-full"
-  buttonClass="!bg-transparent !border-none"
-  dropdownClass="!z-50"
-/>
+                country={"in"}
+                value={formData.mobile}
+                onChange={(phone) =>
+                  setFormData({ ...formData, mobile: phone })
+                }
+                enableSearch
+                inputProps={{ required: true }}
+                inputClass="!w-full !text-sm !border-b !border-gray-200 !pl-14 !py-2 !focus:outline-none !focus:border-gray-900 !bg-white"
+                containerClass="!w-full"
+                buttonClass="!bg-transparent !border-none"
+                dropdownClass="!z-50"
+              />
+            </div> */}
 
-            </div>
+<div className="space-y-1">
+  <label className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2 block">
+    Mobile
+  </label>
+  <input
+    type="tel"
+    required
+    placeholder=""
+    value={formData.mobile}
+    onChange={(e) =>
+      setFormData({ ...formData, mobile: e.target.value })
+    }
+    className="w-full text-sm border-b border-gray-200 px-0 py-2 focus:outline-none focus:border-gray-900 transition-colors"/>
+</div>
+
 
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-500 uppercase tracking-wider">
@@ -154,7 +219,7 @@ const HeroForm: React.FC = () => {
                           )?.focus();
                         }
                       }}
-                      className="w-12 h-12 text-center text-xl border-b-2 border-gray-200 focus:outline-none focus:border-gray-900 bg-transparent"
+                      className="w-10 md:w-7 lg:w-12 h-12 text-center text-xl border-b-2 border-gray-200 focus:outline-none focus:border-gray-900 bg-transparent"
                     />
                   ))}
               </div>
@@ -196,10 +261,15 @@ const HeroForm: React.FC = () => {
             <div className="text-center text-sm text-gray-500">
               <p>
                 Project:{" "}
-                <span className="text-gray-900 font-medium">{formData.category}</span>
+                <span className="text-gray-900 font-medium">
+                  {formData.category}
+                </span>
               </p>
               <p>
-                Mobile: <span className="text-gray-900 font-medium">{formData.mobile}</span>
+                Mobile:{" "}
+                <span className="text-gray-900 font-medium">
+                  {formData.mobile}
+                </span>
               </p>
             </div>
           </div>

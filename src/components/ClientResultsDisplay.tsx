@@ -105,13 +105,15 @@ const AutoScrollingPartners = ({ partners }: { partners: Partner[] }) => {
       <motion.div className="flex gap-4 w-max" animate={controls}>
         {partners.concat(partners).map((partner, idx) => (
           <div key={idx} className="p-4 rounded-xl flex items-center justify-center h-20">
-            <Image
-              src={partner.logo}
-              alt={partner.name}
-              width={150}
-              height={100}
-              className="max-h-10 object-contain transition-all duration-300"
-            />
+           <Image
+  src={partner.logo}
+  alt={partner.name}
+  width={150}
+  height={100}
+  className="max-h-10 object-contain transition-all duration-300"
+  style={{ width: "auto", height: "auto" }}
+/>
+
           </div>
         ))}
       </motion.div>
