@@ -48,7 +48,7 @@ const HeroForm: React.FC = () => {
       const result = await res.json();
   
       if (result.success) {
-        console.log("OTP sent successfully:", otp);
+        
         // Optionally store OTP in state/session for verification
         setStep("otp");
       } else {
