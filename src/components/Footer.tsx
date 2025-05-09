@@ -26,7 +26,7 @@ const otherPlatforms = [
 
 const bottomLinks = [
   { label: "About us", href: "#" },
-  { label: "Contact us", href: "#" },
+  { label: "Contact us", href: "/contact-us" },
   { label: "Sitemap", href: "https://www.parvatiandsons.in/sitemap.xml" },
 ];
 

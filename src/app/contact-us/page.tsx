@@ -79,7 +79,7 @@ Dineshpur, Uttarakhand, India - 263160
           </div>
 
           {/* Social Media Icons */}
-          <div className="flex space-x-4 pt-6 md:pt-25 lg:pt-33">
+          <div className="flex justify-center md:justify-start space-x-4 pt-6 md:pt-25 lg:pt-27">
             <a href="#" className="p-3 bg-gray-900 rounded-full text-white hover:bg-gray-800 transition-colors">
               <Facebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
