@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import TestimonialSection from "@/components/ClientResultsDisplay";
 import ProjectShowcaseBlock from "@/components/ui/ProjectShowcaseBlock";
 import CareerHero from "@/components/CareerHero";
-import Footer from "@/components/Footer";
 import BrandHeroSection from "@/components/BrandEndorsementSection";
 import ReviewSection from "@/components/ui/ReviewSection";
 import WhyChooseUsSection from "@/components/ui/WhyChooseUsSection";
@@ -86,9 +85,7 @@ export default function Home() {
     <section className="">
       <WorldMapDemo/>
     </section>
-    <footer>
-      <Footer/>
-    </footer>
+   
    
    </div>
   );

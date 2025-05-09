@@ -16,6 +16,15 @@ const Navbar = () => {
     }, 100); // Delay lets the new page load
   };
 
+  const handleContact = () => {
+    setIsOpen(false);
+    router.push("/contact-us");
+    // Use a delay before scrolling
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100); // Delay lets the new page load
+  }
+
   const handleClick = () => {
     router.push("/");
 
@@ -78,7 +87,7 @@ const Navbar = () => {
         </ul>
 
         {/* Right Contact Button (Hidden in Mobile) */}
-        <button className="hidden lg:flex items-center border-2 border-gray-700 px-6 lg:px-14 py-2 xl:py-2 rounded-lg xl:rounded-xl text-lg xl:text-2xl font-sans font-semibold text-black hover:bg-gray-100 transition-colors duration-200">
+        <button onClick={handleContact} className="hidden lg:flex items-center border-2 border-gray-700 px-6 lg:px-14 py-2 xl:py-2 rounded-lg xl:rounded-xl text-lg xl:text-2xl font-sans font-semibold text-black hover:bg-gray-100 transition-colors duration-200">
           Contact
         </button>
 
@@ -136,7 +145,7 @@ const Navbar = () => {
     <p onClick={() => navigate("about")} className="block text-base">About</p>
   </li>
   <li className="px-4 py-3 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
-    <p onClick={() => navigate("contact")} className="block text-base">Contact</p>
+    <p onClick={() => navigate("contact-us")} className="block text-base">Contact</p>
   </li>
 </ul>
 
