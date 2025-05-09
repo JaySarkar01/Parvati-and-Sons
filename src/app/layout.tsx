@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import ScrollingTape from "@/components/ui/LanguageTape";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,9 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <section className="fixed bottom-0 z-10 w-full">
+      <ScrollingTape/>
+    </section>
       </body>
     </html>
   );
