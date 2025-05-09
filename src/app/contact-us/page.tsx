@@ -34,9 +34,10 @@ export default function ContactUs() {
   }
 
   return (
-    <div className="pt-20 md:h-screen md:flex justify-center items-center p-4 md:p-8 bg-white">
-      <div className="grid md:grid-cols-2 gap-12 items-start border p-15 rounded-lg shadow-lg bg-gray-50">
-        {/* Left Column - Contact Information */}
+    <div className="min-h-[calc(100vh-120px)] py-24 px-4 md:px-8 bg-white flex items-center justify-center mt-10">
+  <div className="w-full max-w-6xl grid md:grid-cols-2 gap-12 items-start border border-zinc-300 p-6 md:p-10 rounded-lg md:shadow-lg bg-gray-50">
+    {/* Left & Right columns stay the same */}
+
         <div className="space-y-8">
           <div className="space-y-3">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Contact Us</h1>
@@ -44,28 +45,36 @@ export default function ContactUs() {
           </div>
 
           <div className="space-y-5 pt-4">
-            {/* Phone */}
-            <div className="flex items-center p-4 bg-white rounded-md border border-gray-100 hover:border-gray-300 transition-colors">
-              <div className="mr-4">
-                <Phone className="h-5 w-5 text-gray-500" />
-              </div>
-              <span className="text-gray-700">+0123456789</span>
-            </div>
 
             {/* Email */}
-            <div className="flex items-center p-4 bg-gray-900 rounded-md text-white">
+            
+              <div className="flex items-center p-4 bg-white rounded-md border border-gray-100 hover:border-gray-300 transition-colors">
               <div className="mr-4">
                 <Mail className="h-5 w-5" />
               </div>
-              <span>example@email.com</span>
+              <span>info@parvatiandsons.com</span>
             </div>
+
+            {/* Phone */}
+            <div className="flex items-center p-4 bg-gray-900 rounded-md text-white">
+              <div className="mr-4">
+                <Phone className="h-5 w-5 text-gray-100" />
+              </div>
+              <span className="text-gray-100">+91-9837994101</span>
+            </div>
+
+            
 
             {/* Address */}
             <div className="flex items-center p-4 bg-white rounded-md border border-gray-100 hover:border-gray-300 transition-colors">
               <div className="mr-4">
                 <MapPin className="h-5 w-5 text-gray-500" />
               </div>
-              <span className="text-gray-700">775 Rolling Green Rd.</span>
+              <span className="text-gray-700">Parvati And Sons
+First floor, Hotel Pearl Inn, Behind Bada Gurudwara, Gole
+Market, Rudrapur, 263153
+Dineshpur, Uttarakhand, India - 263160
+</span>
             </div>
           </div>
 
@@ -87,8 +96,8 @@ export default function ContactUs() {
         </div>
 
         {/* Right Column - Contact Form */}
-        <div className="bg-white">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="bg-white rounded-xl">
+          <form onSubmit={handleSubmit} className="space-y-6 m-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="firstName" className="block text-gray-700 font-medium">
