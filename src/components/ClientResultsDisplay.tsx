@@ -110,7 +110,7 @@ export default function TestimonialSection({
 
           {/* Mobile */}
           <div className="md:hidden">
-            <TestimonialSlider />
+            <TestimonialSlider testimonials={testimonials}/>
           </div>
         </div>
 

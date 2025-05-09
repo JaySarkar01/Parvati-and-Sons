@@ -1,8 +1,7 @@
 import { useState, useCallback } from 'react';
-import { Inter } from 'next/font/google';
 import Image from 'next/image';
+import { Inter } from 'next/font/google';
 
-// Only load needed weights, defer font loading impact
 const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -10,52 +9,38 @@ const inter = Inter({
   display: 'swap',
 });
 
-const testimonials = [
-  { 
-    metric: '2x', 
-    title: 'Revenue Growth', 
-    description: 'Doubled revenue after implementing our solution',
-    company: 'ACF EVENTS',
-    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZsfBAgTdR9yBtGdz404amtV_ejE4FyOGHrg&s'
-  },
-  { 
-    metric: '5 Hours', 
-    title: 'Weekly Savings', 
-    description: 'Lisbon Santra Tours saves 5 hours weekly on operations',
-    company: 'LISBON SANTRA TOURS',
-    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYM7ViWKDu371o9FnxoxSoIYcWf9SMnsmB4A&s'
-  },
-  { 
-    metric: '35%', 
-    title: 'Lead Conversion', 
-    description: 'Cystercare increased lead conversion by 35% with our platform',
-    company: 'CysterCare',
-    logo: 'https://cystercare.com/wp-content/uploads/2023/01/Logo.png'
-  },
-  { 
-    metric: '20%', 
-    title: 'Sales Increase', 
-    description: 'Eden Ridge boosted sales by 20% using our tools',
-    company: 'EDENRIDGE',
-    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_d_Bl0xBroCEv0rPzzXj_OZltQZ2ApE9jg&s'
-  }
-];
+export type Testimonial = {
+  metric: string;
+  title: string;
+  description: string;
+  company: string;
+  logo: string;
+};
 
-export default function TestimonialCarousel() {
+interface TestimonialCarouselProps {
+  testimonials: Testimonial[];
+  className?: string;
+}
+
+export default function TestimonialCarousel({ testimonials, className = '' }: TestimonialCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  }, []);
+  }, [testimonials.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, []);
+  }, [testimonials.length]);
+
+  if (!testimonials.length) {
+    return <div className="text-center py-10 text-gray-500">No testimonials available.</div>;
+  }
 
   const current = testimonials[currentIndex];
 
   return (
-    <div className={`relative max-w-3xl mx-auto p-4 ${inter.className}`}>
+    <div className={`relative max-w-3xl mx-auto p-4 ${inter.className} ${className}`}>
       <div className="relative overflow-hidden">
         <div className="transition-transform duration-300 ease-in-out">
           <div className="p-8 py-5 bg-gradient-to-br from-white via-blue-100 to-blue-300 rounded-2xl shadow-lg border border-purple-200 flex flex-col">
@@ -85,7 +70,7 @@ export default function TestimonialCarousel() {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Navigation */}
       <div className="flex justify-end mt-8 gap-4">
         <button 
           onClick={prevSlide}
