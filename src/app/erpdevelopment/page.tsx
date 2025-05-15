@@ -42,7 +42,7 @@ const page = () => {
         subheading: 'Streamline your business processes with scalable, tailored ERP systems designed for efficiency and growth.',
       }} />
       <TestimonialSection testimonials={testimonials} heading="Our Clients' Success Stories" subheading="See how we transformed their digital presence." />
-        <h2 className='text-3xl font-bold'>Explore Our ERP Development Solutions</h2>
+        <h2 className='text-3xl font-bold text-center'>Explore Our ERP Development Solutions</h2>
       </div>
   )
 }

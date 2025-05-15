@@ -42,7 +42,7 @@ const page = () => {
         subheading: 'Transform your ideas into intelligent, user-centric mobile or web apps that elevate your digital presence.',
       }} />
       <TestimonialSection testimonials={testimonials} heading="Our Clients' Success Stories" subheading="See how we transformed their digital presence." />
-        <h2 className='text-3xl font-bold'>Explore Our App Development Solutions</h2>
+        <h2 className='text-3xl font-bold text-center'>Explore Our App Development Solutions</h2>
 
       </div>
   )
