@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero'
 import React from 'react'
 import TestimonialSection from '@/components/ClientResultsDisplay';
+import WhyChooseUs from './components/Whyus';
 
 const testimonials = [
   {
@@ -50,6 +51,7 @@ const page = () => {
       <div className='flex justify-center items-center mt-5'>
         <p className='text-lg text-gray-600'>Discover how our AI-driven automation can elevate your business.</p>
       </div>
+      <WhyChooseUs />
     </div>
     
   )

@@ -1,7 +1,8 @@
 import Hero from '@/components/Hero'
 import React from 'react'
 import TestimonialSection from '@/components/ClientResultsDisplay';
-
+import WhyChooseUs from './components/Whyus';
+import ProcessOverview from './components/ProcessOverview';
 const testimonials = [
   {
     metric: '45%',
@@ -37,12 +38,18 @@ const testimonials = [
 const page = () => {
   return (
     <div className='antialiased mt-15'>
+      
       <Hero data={{
         heading: 'Custom ERP Solutions',
         subheading: 'Streamline your business processes with scalable, tailored ERP systems designed for efficiency and growth.',
       }} />
+      
       <TestimonialSection testimonials={testimonials} heading="Our Clients' Success Stories" subheading="See how we transformed their digital presence." />
+      <ProcessOverview />
         <h2 className='text-3xl font-bold text-center'>Explore Our ERP Development Solutions</h2>
+        <p className='text-lg text-gray-600 text-center mt-5'>Discover how our custom ERP solutions can drive growth, efficiency, and innovation.</p>
+      <WhyChooseUs />
+      
       </div>
   )
 }

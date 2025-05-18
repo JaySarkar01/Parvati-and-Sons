@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero'
 import React from 'react'
 import TestimonialSection from '@/components/ClientResultsDisplay';
+import WhyChooseUs from './components/Whyus';
 
 const testimonials = [
   {
@@ -33,7 +34,6 @@ const testimonials = [
   },
 ];
 
-
 const page = () => {
   return (
     <div className='antialiased mt-15'>
@@ -42,8 +42,14 @@ const page = () => {
         subheading: 'Transform your ideas into intelligent, user-centric mobile or web apps that elevate your digital presence.',
       }} />
       <TestimonialSection testimonials={testimonials} heading="Our Clients' Success Stories" subheading="See how we transformed their digital presence." />
-        <h2 className='text-3xl font-bold text-center'>Explore Our App Development Solutions</h2>
+      <div className='flex justify-center items-center mt-10'>
+  <h2 className='text-3xl font-bold'>Explore Our Android App Development Services</h2>
+</div>
+<div className='flex justify-center items-center mt-5'>
+  <p className='text-lg text-gray-600'>Discover how our custom-built Android apps can drive growth, engagement, and innovation.</p>
+</div>
 
+        <WhyChooseUs />
       </div>
   )
 }
