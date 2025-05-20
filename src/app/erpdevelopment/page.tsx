@@ -2,7 +2,7 @@ import Hero from '@/components/Hero'
 import React from 'react'
 import TestimonialSection from '@/components/ClientResultsDisplay';
 import WhyChooseUs from './components/Whyus';
-import ProcessOverview from './components/ProcessOverview';
+import ProcessOverview from '../../components/ui/ProcessOverview';
 const testimonials = [
   {
     metric: '45%',
